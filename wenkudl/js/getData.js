@@ -19,6 +19,16 @@
                 console.log(byiddom);
                 let ele_p = byiddom.getElementsByTagName('p');
                 console.log(ele_p);
+                let dom = document.getElementsByClassName('inner')[0];
+                console.log(dom.scrollTop);
+                let thisflag = 0;
+                while (ele_p.length < 1 || thisflag >= 3) {
+
+                    dom.scrollTop += 300;
+                    let byiddom = document.getElementById(id);
+                    let ele_p = byiddom.getElementsByTagName('p');
+                    thisflag++;
+                }
                 for (let i = 0; i < ele_p.length; i++) {
                     let flag = addlf(ele_p[i]);
                     if (flag == 1) {} else if (flag == 2) {
@@ -33,6 +43,8 @@
                     }
 
                 }
+
+
             }
 
 
