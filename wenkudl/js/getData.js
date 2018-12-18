@@ -4,14 +4,9 @@
     let reg = /wenku.baidu.com\/view\//;
     if (reg.test(url1)) {
         setTimeout(() => {
-            // let container = document.getElementById('reader-container-1');
-            //let container = document.getElementsByClassName('ie-fix');
             let countDom = document.getElementsByClassName('page-count')[0];
             let count = countDom.innerHTML.replace(/\//, '');
 
-            // let container = document.getElementsByClassName('ie-fix');
-            // console.log(container);
-            // let container = $('.ie-fix');
             let result = '';
             for (let index = 1; index <= count; index++) {
                 let id = 'pageNo-' + index;
