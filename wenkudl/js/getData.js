@@ -6,7 +6,6 @@
         setTimeout(() => {
             let countDom = document.getElementsByClassName('page-count')[0];
             let count = countDom.innerHTML.replace(/\//, '');
-
             let result = '';
             for (let index = 1; index <= count; index++) {
                 let id = 'pageNo-' + index;
