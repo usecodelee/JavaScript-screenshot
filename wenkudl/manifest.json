@@ -1,0 +1,27 @@
+{
+    "manifest_version": 2,
+    "name": "wenkudl",
+    "description": "wenku download",
+    "version": "1.0",
+    "icons": {
+        "16": "imgs/logo16.png",
+        "48": "imgs/logo48.png",
+        "128": "imgs/logo128.png"
+    },
+    "background": {
+        "page": "index.html"
+    },
+    "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "js": ["js/jq.js"],
+        "css": ["css/button.css"],
+        "run_at": "document_start"
+    }],
+    "browser_action": {
+        "default_icon": "imgs/logo128.png",
+        "default_popup": "index.html",
+        "default_title": ""
+    },
+    "content_security_policy": "script-src 'self'; object-src 'self'",
+    "permissions": ["activeTab", "tabs", "notifications", "webRequest", "http://*/*", "https://*/*"]
+}
