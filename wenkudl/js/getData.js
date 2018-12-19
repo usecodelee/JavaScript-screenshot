@@ -30,9 +30,11 @@
                 //解析完毕以后：滚动
                 document.documentElement.scrollTop = (index - 1) * 1500;
                 //第二页跳转
+                layer(index, count);
                 if (index < count) {
                     getPageContent(index + 1);
                 } else { //全部解析完毕，下载
+                    // return;
                     let fileName = Date.now() + ".doc";
                     var blob = new Blob(["\uFEFF" + result], { type: "text/doc;" });
                     var downloadLink = document.createElement("a");
@@ -55,7 +57,7 @@
         }
 
         function addlf(ele) {
-            console.log(ele.innerHTML);
+            // console.log(ele.innerHTML);
             let attr = ele.getAttribute('style');
             let str = ele.innerHTML;
             str = str.replace(/\s*/g, "");
@@ -70,6 +72,72 @@
             } else if (!hh && str) {} {
                 return 4;
             }
+        }
+
+        // 蒙层
+        function layer(index, max) {
+            let Progress_bar_overlay = document.getElementById("Progress_bar_overlay");
+            if (Progress_bar_overlay) {
+                try {
+                    Progress_bar_overlay.parentNode.removeChild(Progress_bar_overlay);
+                } catch (error) {
+
+                }
+
+            }
+            let Progress_bar_ov = document.getElementById("Progress_bar_ov");
+            if (Progress_bar_ov) {
+                try {
+                    Progress_bar_ov.parentNode.removeChild(Progress_bar_ov);
+                } catch (error) {
+
+                }
+
+            }
+            if (index == max) {
+                cancelDisMouseWheel();
+                try {
+                    Progress_bar_overlay.parentNode.removeChild(Progress_bar_overlay);
+                    Progress_bar_ov.parentNode.removeChild(Progress_bar_ov);
+                } catch (error) {
+
+                }
+
+                return;
+            } else {
+                let mchtml = `<div id="Progress_bar_overlay" style="position: fixed;z-index: 99997;top: 0;bottom: 0;left: 0;right: 0;opacity: .5;background-color: #000;"></div>`;
+                let prhtml = `<div id="Progress_bar_ov" style="position: fixed;z-index: 99998;top: 50%;left: 50%;transform: translate(-50%, -50%);">
+            <progress max=${max} value=${index} style="width: 500px;height: 30px;border: none;"></progress></div>`;
+                let divdom = document.createElement("div");
+                divdom.innerHTML = mchtml + prhtml;
+                document.getElementsByTagName('body')[0].append(divdom);
+                disabledMouseWheel(); //阻止滚动
+            }
+        }
+
+        //阻止浏览器事件
+        function disabledMouseWheel() {
+            document.addEventListener('DOMMouseScroll', scrollFunc, false);
+            document.addEventListener('mousewheel', scrollFunc, false);
+        }
+        //取消阻止浏览器事件
+        function cancelDisMouseWheel() {
+            document.removeEventListener('DOMMouseScroll', scrollFunc, false);
+            document.removeEventListener('mousewheel', scrollFunc, false);
+        }
+
+        function scrollFunc(evt) {
+            evt = evt || window.event;
+            if (evt.preventDefault) {
+                // Firefox  
+                evt.preventDefault();
+                evt.stopPropagation();
+            } else {
+                // IE  
+                evt.cancelBubble = true;
+                evt.returnValue = false;
+            }
+            return false;
         }
     }
 })()
