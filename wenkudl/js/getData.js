@@ -10,57 +10,73 @@
             for (let index = 1; index <= count; index++) {
                 let id = 'pageNo-' + index;
                 let byiddom = document.getElementById(id);
-                console.log(byiddom);
                 let ele_p = byiddom.getElementsByTagName('p');
-                console.log(ele_p);
-                let dom = document.getElementsByClassName('inner')[0];
-                console.log(dom.scrollTop);
+                // console.log(ele_p);
+                // document.body.scrollTop = document.documentElement.scrollTop = number;
+                // console.log(document.body.scrollTop);
+                // console.log(document.documentElement.scrollTop);
+                // return;
                 let thisflag = 0;
-                while (ele_p.length < 1 || thisflag >= 3) {
+                let xhbl = index;
+                while (ele_p.length < 1 && thisflag < 2) {
+                    document.documentElement.scrollTop = (xhbl - 1) * 1500;
+                    (function(byiddom) {
+                        setTimeout(function() {
+                            byiddom = document.getElementById(id);
+                            ele_p = byiddom.getElementsByTagName('p');
+                            console.log(byiddom);
+                            console.log(ele_p);
+                        }, 1000);
+                    })(byiddom);
 
-                    dom.scrollTop += 300;
-                    let byiddom = document.getElementById(id);
-                    let ele_p = byiddom.getElementsByTagName('p');
                     thisflag++;
+                    xhbl++;
+                    // console.log(ele_p);
                 }
-                for (let i = 0; i < ele_p.length; i++) {
-                    let flag = addlf(ele_p[i]);
-                    if (flag == 1) {} else if (flag == 2) {
+                console.log(document.documentElement.scrollTop);
+                setTimeout(() => {
+                    for (let i = 0; i < ele_p.length; i++) {
+                        let flag = addlf(ele_p[i]);
+                        if (flag == 1) {} else if (flag == 2) {
 
-                        result += '\n';
-                    } else if (flag == 3) {
-                        result += ele_p[i].innerHTML + '\n';
-                    }
-                    // 换行
-                    else if (flag == 1) {
-                        result += ele_p[i].innerHTML;
-                    }
+                            result += '\n';
+                        } else if (flag == 3) {
+                            result += ele_p[i].innerHTML + '\n';
+                        }
+                        // 换行
+                        else if (flag == 1) {
+                            result += ele_p[i].innerHTML;
+                        }
 
-                }
+                    }
+                }, 1000);
+
 
 
             }
 
-
-            console.log(result);
-            return;
-            let fileName = Date.now() + ".doc";
-            var blob = new Blob(["\uFEFF" + result], { type: "text/doc;" });
-            var downloadLink = document.createElement("a");
-            if ("download" in downloadLink) {
-                var url = URL.createObjectURL(blob);
-                downloadLink.href = url;
-                downloadLink.download = fileName;
-                downloadLink.hidden = true;
-                document.body.appendChild(downloadLink);
-                downloadLink.click();
-                document.body.removeChild(downloadLink);
-            } else {
-                if (navigator.msSaveBlob) {
-                    //IE10+
-                    navigator.msSaveBlob(blob, fileName);
+            setTimeout(() => {
+                console.log(result);
+                // return;
+                let fileName = Date.now() + ".doc";
+                var blob = new Blob(["\uFEFF" + result], { type: "text/doc;" });
+                var downloadLink = document.createElement("a");
+                if ("download" in downloadLink) {
+                    var url = URL.createObjectURL(blob);
+                    downloadLink.href = url;
+                    downloadLink.download = fileName;
+                    downloadLink.hidden = true;
+                    document.body.appendChild(downloadLink);
+                    downloadLink.click();
+                    document.body.removeChild(downloadLink);
+                } else {
+                    if (navigator.msSaveBlob) {
+                        //IE10+
+                        navigator.msSaveBlob(blob, fileName);
+                    }
                 }
-            }
+            }, 3000);
+
 
         }, 2000);
 
