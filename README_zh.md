@@ -1,7 +1,7 @@
 # wenkudl
 
 [![star this repo](http://githubbadges.com/star.svg?user=usecodelee&repo=wenku-download&style=default)](https://github.com/usecodelee/wenku-download)
-[![fork this repo](http://githubbadges.com/fork.svg?user=usecodelee&repo=wenku-download&style=default)](https://github.com/usecodelee/wenku-download/fork) ![](https://img.shields.io/badge/wenkudl-v1.0-green.svg) ![](https://img.shields.io/badge/language-javascript-yellow.svg) ![](https://img.shields.io/badge/use-extension-orange.svg)
+[![fork this repo](http://githubbadges.com/fork.svg?user=usecodelee&repo=wenku-download&style=default)](https://github.com/usecodelee/wenku-download/fork) ![](https://img.shields.io/badge/wenkudl-v1.0-green.svg) ![](https://img.shields.io/badge/language-javascript-yellow.svg) ![](https://img.shields.io/badge/use-extension-orange.svg) ![](https://img.shields.io/badge/javascript-90.0%25-lightgrey.svg) ![](https://img.shields.io/badge/licence-MIT-blue.svg)
 
 一键复制baidu文库Word或PDF文章，自动保存为Word文档并下载。
 
