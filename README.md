@@ -45,7 +45,7 @@ Copy the baidu wenku Word or PDF article with one key, automatically save it as 
     
         <img src="https://github.com/usecodelee/wenku-download/blob/master/images/6.jpg" width="300" hegiht="150" align=center />
         
-    4. > **Click start **
+    4. > **Click start**
     
         <img src="https://github.com/usecodelee/wenku-download/blob/master/images/7.jpg" width="300" hegiht="150" align=center />
         
