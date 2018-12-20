@@ -1,6 +1,6 @@
 # wenkudl
 
-一键复制baidu文库Word或PDF文章，自动保存为Word文档。
+一键复制baidu文库Word或PDF文章，自动保存为Word文档并下载。
 
 ## 如何使用
 
