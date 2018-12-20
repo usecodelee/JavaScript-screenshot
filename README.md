@@ -3,6 +3,8 @@
 [![star this repo](http://githubbadges.com/star.svg?user=usecodelee&repo=wenku-download&style=default)](https://github.com/usecodelee/wenku-download)
 [![fork this repo](http://githubbadges.com/fork.svg?user=usecodelee&repo=wenku-download&style=default)](https://github.com/usecodelee/wenku-download/fork) ![](https://img.shields.io/badge/wenkudl-v1.0-green.svg) ![](https://img.shields.io/badge/language-javascript-yellow.svg) ![](https://img.shields.io/badge/use-extension-orange.svg)
 
+[中文文档](https://github.com/usecodelee/wenku-download/blob/master/README_zh.md)
+
 Copy the baidu wenku Word or PDF article with one key, automatically save it as Word document, and download it to local.
 
 ## How To Use
