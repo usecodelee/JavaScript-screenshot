@@ -5,7 +5,7 @@
 
 [中文文档](https://github.com/usecodelee/wenku-download/blob/master/README_zh.md)
 
-Copy the baidu wenku Word or PDF article with one key, automatically save it as Word document, and download it to local.
+Copy the baidu wenku Word or PDF article with one key, automatically save  it as Word document, and download it to local.
 
 ## How To Use
 
