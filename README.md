@@ -19,7 +19,7 @@ Copy the baidu wenku Word or PDF article with one key, automatically save  it as
 
     1. > **Open the Google browser**
     
-    2. > **Click the Settings in the upper right corner -> more tools -> extension program**
+    2. > **Click the Settings in the upper right corner --> more tools --> extension program**
     
         <img src="https://github.com/usecodelee/wenku-download/blob/master/images/1.jpg" width="300" hegiht="150" align=center />
         
