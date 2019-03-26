@@ -165,6 +165,7 @@ export default {
                 },
                 // 渲染dom
                 readerDom(node) {
+                    console.log(node);
                     let nodeArr = node.toString().split(",");
                     that.puzzles = nodeArr;
                     that.pass();
