@@ -22,7 +22,7 @@
 export default {
     data() {
         return {
-            puzzles: []
+            puzzles:[]
         };
     },
     methods: {
@@ -30,6 +30,7 @@ export default {
         aotoPlay() {
             let Setting = {
                 originalNode: _.chunk(this.puzzles, 3),
+                // originalNode: [[1, 3, 2],[5, 8, 0],[7, 6, 4]],
                 resultNode: [[1, 2, 3], [4, 5, 6], [7, 8, 0]],
                 delayTime: "500"
             };
@@ -43,7 +44,12 @@ export default {
                 console.log('走你');
                 this.autoPuzzles(Setting).searchPath();
             } else {
-                console.log("这也太乱了，搞不了");
+                alert("这也太乱了，搞不了（自动重新打乱）");
+                this.shuffle();
+                setTimeout(() => {
+                    this.aotoPlay();
+                }, 1000);
+                
             }
         },
         // 打乱
@@ -74,6 +80,7 @@ export default {
                 canReach(originalNode, resultNode) {
                     originalNode = originalNode.toString().split(",");
                     resultNode = resultNode.toString().split(",");
+                    this.readerDom(originalNode);
                     if (this.odevity(originalNode) === this.odevity(resultNode)) {
                         return true;
                     } else {
@@ -165,7 +172,6 @@ export default {
                 },
                 // 渲染dom
                 readerDom(node) {
-                    console.log(node);
                     let nodeArr = node.toString().split(",");
                     that.puzzles = nodeArr;
                     that.pass();
@@ -180,7 +186,7 @@ export default {
                         colNum = currentNode[0].length;
                     currentNode.forEach(function(item, i) {
                         item.forEach(function(obj, k) {
-                            if (obj === 0) {
+                            if (obj === 0 || obj ==="0") {
                                 target = { x: k, y: i };
                             }
                         });
@@ -250,13 +256,7 @@ export default {
         },
         // 渲染
         rander() {
-            this.puzzles = Array.apply(null, { length: 8 }).map(function(
-                _,
-                index
-            ) {
-                return (index % 8) + 1;
-            });
-            this.puzzles.push(0);
+            this.puzzles = [1, 2, 3,4, 5, 6,7, 8, 0];
             this.shuffle();
         },
         // 点击方块
@@ -267,25 +267,24 @@ export default {
             let topIndex = this.puzzles[index - 3];
             let bottomIndex = this.puzzles[index + 3];
 
-            if (leftIndex === "" && index % 3) {
+            if (leftIndex == 0 && index % 3) {
                 this.$set(this.puzzles, index - 1, curIndex);
-                this.$set(this.puzzles, index, "");
-            } else if (rightIndex === "" && 2 !== index % 3) {
+                this.$set(this.puzzles, index, "0");
+            } else if (rightIndex == 0 && 2 !== index % 3) {
                 this.$set(this.puzzles, index + 1, curIndex);
-                this.$set(this.puzzles, index, "");
-            } else if (topIndex === "") {
+                this.$set(this.puzzles, index, "0");
+            } else if (topIndex == 0) {
                 this.$set(this.puzzles, index - 3, curIndex);
-                this.$set(this.puzzles, index, "");
-            } else if (bottomIndex === "") {
+                this.$set(this.puzzles, index, "0");
+            } else if (bottomIndex == 0) {
                 this.$set(this.puzzles, index + 3, curIndex);
-                this.$set(this.puzzles, index, "");
+                this.$set(this.puzzles, index, "0");
             }
 
             this.pass();
         },
         // 是否通过
         pass() {
-          console.log(111);
             if (this.puzzles[8] === "0" || this.puzzles[8] === 0) {
                 const newPuzzles = this.puzzles.slice(0, 8);
                 const isPass = newPuzzles.every((e, i) => e === i + 1);
