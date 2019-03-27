@@ -8,6 +8,8 @@ Jigsaw puzzle based on Vue
 
 ## 增加自动拼图功能
 
+## 增加自动重新打乱开始功能
+
 ## 使用：
 
 1. npm install
