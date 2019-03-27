@@ -44,7 +44,7 @@ export default {
                 console.log('走你');
                 this.autoPuzzles(Setting).searchPath();
             } else {
-                alert("这也太乱了，搞不了（自动重新打乱）");
+                alert("这也太乱了（自动重新打乱）");
                 this.shuffle();
                 setTimeout(() => {
                     this.aotoPlay();
