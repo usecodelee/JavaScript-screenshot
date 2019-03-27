@@ -26,7 +26,7 @@ export default {
         };
     },
     methods: {
-        // 自己玩
+        // 自己拼图
         aotoPlay() {
             let Setting = {
                 originalNode: _.chunk(this.puzzles, 3),
