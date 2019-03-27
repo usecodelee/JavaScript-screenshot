@@ -1,11 +1,7 @@
 <template>
     <div class="box">
         <button @click="shuffle">重置</button>
-        <transition-group
-            name="cell"
-            tag="div"
-            class="container"
-        >
+        <transition-group name="cell" tag="div" class="container">
             <div
                 @click.prevent="clickBlock(index)"
                 v-for="(puzzle,index) in puzzles"
@@ -29,11 +25,8 @@ export default {
       this.puzzles = _.shuffle(this.puzzles);
     },
     rander() {
-      this.puzzles = Array.apply(null, { length: 8 }).map(function(_, index) {
-        return (index % 8) + 1;
-      });
-      this.puzzles.push('');
-      this.shuffle();
+      this.puzzles = [1,2,3,4,5,6,7,8,'']
+      // this.shuffle();
     },
     // 点击方块
     clickBlock(index) {
@@ -44,6 +37,7 @@ export default {
       let bottomIndex = this.puzzles[index + 3];
 
       if (leftIndex === '' && index % 3) {
+        console.log(index % 3);
         this.$set(this.puzzles, index - 1, curIndex);
         this.$set(this.puzzles, index, '');
       } else if (rightIndex === '' && 2 !== index % 3) {
