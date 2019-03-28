@@ -4,7 +4,7 @@
 
 在上一篇文章中我们已经写完了一个可以正常玩的拼图小游戏，但是这还没有结束，我们还要接着试一下让拼图游戏可以自己完成拼图。
 最终效果如下图：
-![最终效果](https://github.com/usecodelee/Vue-jigsawPuzzle/blob/master/img/20190327.gif?raw=true)
+![最终效果](https://github.com/usecodelee/Vue-jigsawPuzzle/blob/master/img/20190328.gif?raw=true)
 
 本部分是这篇文章的第二部分，主要讲的是实现自动拼图的功能实现。
 
@@ -88,6 +88,6 @@ odevity(node) {
 优化的话可以从搜索算法上使用A*算法进行优化。此外，为了提高用户体验，我做的这个小游戏里面当打乱之后不能复原的话可以自动重新打乱，直到可以复原为止。
 
 看看最终的效果：  
-![5.gif](https://github.com/usecodelee/Vue-jigsawPuzzle/blob/master/img/5.gif?raw=true)
+![5.gif](https://github.com/usecodelee/Vue-jigsawPuzzle/blob/master/img/20190328.gif?raw=true)
 
 项目源码：[https://github.com/usecodelee/Vue-jigsawPuzzle](https://github.com/usecodelee/Vue-jigsawPuzzle)
