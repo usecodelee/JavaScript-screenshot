@@ -122,7 +122,7 @@ export default {
                                 .split(",")
                                 .join("");
                         if (resultNodeStr === currentNodeStr) {
-                            let path = []; // 保存路径
+                            let path = []; 
                             let pathLength = 0;
                             let resultPath = [];
                             for (
@@ -130,7 +130,7 @@ export default {
                                 v != originalNodeStr;
                                 v = NodeObj[v]
                             ) {
-                                path.push(hashObj[v]); // 顶点添加进路径
+                                path.push(hashObj[v]); 
                             }
                             path.push(hashObj[originalNodeStr]);
                             pathLength = path.length;

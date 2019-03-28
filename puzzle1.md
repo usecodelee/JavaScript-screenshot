@@ -4,7 +4,7 @@
 
 随着几个项目的提测，也闲下来了，恰好玩了一把拼图游戏，于是突发奇想打算自己写一个试试。
 最终效果如下图：
-!()[]
+![最终效果](https://github.com/usecodelee/Vue-jigsawPuzzle/blob/master/img/20190327.gif?raw=true)
 
 ### 实现的功能有：
 
@@ -103,10 +103,10 @@ css
 </style>
 ```
 
-有一点需要注意的是我在页面中是使用Vue的列表的排序过渡动画，效果看起来挺不错的。`<transition-group>` 组件有一个特殊之处。不仅可以进入和离开动画，还可以改变定位。要使用这个新功能只需了解新增的 v-move 特性，它会在元素的改变定位的过程中应用。像之前的类名一样，可以通过 name 属性来自定义前缀，也可以通过 move-class 属性手动设置。详细使用情况请看：  
+有一点需要注意的是我在页面中是使用Vue的列表的排序过渡动画，效果看起来挺不错的。`<transition-group>` 组件有一个特殊之处。不仅可以进入和离开动画，还可以改变定位。要使用这个新功能只需了解新增的 `v-move` 特性，它会在元素的改变定位的过程中应用。像之前的类名一样，可以通过 `name` 属性来自定义前缀，也可以通过 `move-class` 属性手动设置。详细使用情况请看：  
 [https://cn.vuejs.org/v2/guide/transitions.html](https://cn.vuejs.org/v2/guide/transitions.html)  
 
-js部分则需要在data属性中定义一个数组，methods中需要定义一个渲染函数，mounted中则是执行这个渲染函数：  
+js部分则需要在`data`属性中定义一个数组，`methods`中需要定义一个渲染函数，`mounted`中则是执行这个渲染函数：  
 
 ```javascript
 data() {
@@ -123,7 +123,7 @@ mounted() {
 ```
 
 现在我们来看一下效果：  
-!()[2.jpg]
+![2.jpg](https://github.com/usecodelee/Vue-jigsawPuzzle/blob/master/img/2.jpg?raw=true)
 
 ### 打乱
 
@@ -133,7 +133,7 @@ mounted() {
 <button @click="shuffle">重置</button>
 ```
 
-然后在methods中定义一个‘shuffle’函数，负责打乱整个拼图：
+然后在methods中定义一个‘`shuffle`’函数，负责打乱整个拼图：
 
 ```javascript
 shuffle() {
@@ -141,9 +141,9 @@ shuffle() {
 },
 ```
 
-其中`_.shuffle`是lodash的打乱数组函数，当然不喜欢这个库的话也可以自己写一个打乱函数。  
+其中`_.shuffle`是`lodash`的打乱数组函数，当然不喜欢这个库的话也可以自己写一个打乱函数。  
 然后我们再看看效果：  
-!()[3.gif]
+![3.gif](https://github.com/usecodelee/Vue-jigsawPuzzle/blob/master/img/3.gif?raw=true)
 
 有一个需要注意的点：我们写的打乱函数打乱的拼图其实不一定都是可以复原的。能不能复原需要用专门的算法计算出来，我会在下一篇文章讲到。
 
@@ -179,7 +179,7 @@ clickBlock(index) {
 
 可以点击之后再来看看效果：
 
-!()[4.gif]
+![4.gif](https://github.com/usecodelee/Vue-jigsawPuzzle/blob/master/img/4.gif?raw=true)
 
 ### 判断有没有过关
 
@@ -201,4 +201,6 @@ pass() {
 ```
 
 看看最终的效果：  
-!()[5.gif]
+![5.gif](https://github.com/usecodelee/Vue-jigsawPuzzle/blob/master/img/5.gif?raw=true)
+
+项目源码：[https://github.com/usecodelee/Vue-jigsawPuzzle](https://github.com/usecodelee/Vue-jigsawPuzzle)
