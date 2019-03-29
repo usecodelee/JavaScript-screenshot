@@ -1,0 +1,14 @@
+{
+    "name": "js_screen_shots",
+    "version": "1.1.3",
+    "description": "javascript screenshot",
+    "main": "js_screen_shot.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "usecodelee",
+    "license": "MIT",
+    "dependencies": {
+        "html2canvas": "^1.0.0-alpha.12"
+    }
+}
